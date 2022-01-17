@@ -1,0 +1,29 @@
+{
+  "scopeName": "multiline-html.injection",
+  "injectionSelector": "string.quoted.other.nix",
+  "patterns": [
+    {
+      "include": "#fenced_code_block_html"
+    }
+  ],
+  "repository": {
+    "fenced_code_block_html": {
+      "begin": "(\\G)(?<='')(html)",
+      "while": "(\\G)(?!(.|\\s)*'')",
+      "beginCaptures": {
+        "2": { "name": "fenced_code.block.language.nix" }
+      },
+      "patterns": [
+        {
+          "begin": "(\\G)(\\s*)(.*)",
+          "contentName": "meta.embedded.block.html",
+          "patterns": [
+            {
+              "include": "text.html.basic"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
