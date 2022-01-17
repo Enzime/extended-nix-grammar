@@ -1,5 +1,5 @@
 {
-  "scopeName": "multiline-html.injection",
+  "scopeName": "ext-multiline-html.injection",
   "injectionSelector": "string.quoted.other.nix",
   "patterns": [
     {
@@ -9,7 +9,7 @@
   "repository": {
     "fenced_code_block_html": {
       "begin": "(\\G)(?<='')(html)",
-      "while": "(\\G)(?!(.|\\s)*'')",
+      "while": "(\\G)(?!(.|\\s)*(?<!')''(?!'))",
       "beginCaptures": {
         "2": { "name": "fenced_code.block.language.nix" }
       },

@@ -13,11 +13,11 @@
   TODO
   */
 
-  dont = '' html
+  dont = /* html */ ''
             <a>
   '';
 
-  help = ''html
+  help = /* html */''
     REMOVEME
     <a href="https://www.google.com">
       G00G
@@ -28,7 +28,7 @@
   <a></a>'' + 15;
 
 
-  me = ''html
+  me = /* html */''
     REMOVEME
     <a href="https://www.google.com">
       G00G
@@ -40,7 +40,7 @@
   '' + 50;
   now = "homl";
   thanks = "html";
-  or = ''html
+  or = /* html */''
     <a href="apple">
       ${"hey"}
       ''${"firefox"}

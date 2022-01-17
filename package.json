@@ -12,8 +12,13 @@
     "contributes": {
         "grammars": [
             {
-                "scopeName": "multiline-html.injection",
-                "path": "./syntaxes/injection.json",
+                "language": "nix",
+                "scopeName": "source.nix",
+                "path": "./syntaxes/nix.tmLanguage.json"
+            },
+            {
+                "scopeName": "ext-multiline-html.injection",
+                "path": "./syntaxes/ext-lang-injection.json",
                 "injectTo": ["source.nix"],
                 "embeddedLanguages": {
                     "meta.embedded.block.html": "html"

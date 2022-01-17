@@ -768,7 +768,7 @@
       "patterns": [
         {
           "name": "comment.block.nix",
-          "begin": "/\\*([^*]|\\*[^\\/])*",
+          "begin": "/\\*",
           "end": "\\*\\/",
           "patterns": [
             {
@@ -834,6 +834,49 @@
     },
     "string": {
       "patterns": [
+        {
+          "begin": "(?=(/\\* html \\*/)\\'\\')",
+          "beginCaptures": {
+            "1": { "name": "comment.block.nix" }
+          },
+          "end": "(?=([\\])};,]|\\b(else|then)\\b))",
+          "patterns": [
+            {
+              "name": "string.quoted.other.nix",
+              "begin": "''",
+              "end": "(?<!')''(?!$|'|\\.)",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.string.other.start.nix"
+                }
+              },
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.string.other.end.nix"
+                }
+              },
+              "patterns": [
+                {
+                  "begin": "(\\G)(\\s*)(.*)",
+                  "end": "(?=(?<!')''(?!'))",
+                  "contentName": "meta.embedded.block.html",
+                  "patterns": [
+                    {
+                      "include": "text.html.basic"
+                    }
+                  ]
+                },
+                {
+                  "name": "constant.character.escape.nix",
+                  "match": "\\'\\'(\\$|\\'|\\\\.)"
+                },
+                {
+                  "include": "#interpolation"
+                }
+              ]
+            }
+          ]
+        },
         {
           "begin": "(?=\\'\\')",
           "end": "(?=([\\])};,]|\\b(else|then)\\b))",
