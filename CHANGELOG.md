@@ -6,4 +6,5 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+- Added `nix.tmLanguage.json` from `nix-ide`
 - Added injection grammar to extend Nix multiline strings to support language annotations
