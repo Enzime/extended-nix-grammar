@@ -20,6 +20,9 @@
           "include": "#list-and-cont"
         },
         {
+          "include": "#annotated-multiline"
+        },
+        {
           "include": "#string"
         },
         {
@@ -69,6 +72,9 @@
         },
         {
           "include": "#list"
+        },
+        {
+          "include": "#annotated-multiline"
         },
         {
           "include": "#string"
@@ -832,43 +838,40 @@
         }
       ]
     },
-    "string": {
+    "annotated-multiline": {
       "patterns": [
         {
-          "begin": "(?=(/\\* html \\*/)\\'\\')",
+          "begin": "(/\\* (html) \\*/)('')",
+          "end": "(?<!')''(?!\\$|')",
+          "name": "string.quoted.double.nix",
           "beginCaptures": {
-            "1": { "name": "comment.block.nix" }
+            "1": {
+              "name": "comment.block.nix"
+            },
+            "2": {
+              "name": "keyword.todo"
+            },
+            "3": {
+              "name": "punctuation.definition.string.other.start.nix"
+            }
           },
-          "end": "(?=([\\])};,]|\\b(else|then)\\b))",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.other.end.nix"
+            }
+          },
           "patterns": [
             {
-              "name": "string.quoted.other.nix",
-              "begin": "''",
-              "end": "(?<!')''(?!$|'|\\.)",
-              "beginCaptures": {
-                "0": {
-                  "name": "punctuation.definition.string.other.start.nix"
-                }
-              },
-              "endCaptures": {
-                "0": {
-                  "name": "punctuation.definition.string.other.end.nix"
-                }
-              },
+              "begin": "(?<='')",
+              "end": "(?=(?<!')''(?!\\$|'))",
+              "contentName": "meta.embedded.block.html",
               "patterns": [
                 {
-                  "begin": "(\\G)(\\s*)(.*)",
-                  "end": "(?=(?<!')''(?!'))",
-                  "contentName": "meta.embedded.block.html",
-                  "patterns": [
-                    {
-                      "include": "text.html.basic"
-                    }
-                  ]
+                  "include": "text.html.basic"
                 },
                 {
                   "name": "constant.character.escape.nix",
-                  "match": "\\'\\'(\\$|\\'|\\\\.)"
+                  "match": "\\'\\'(\\$|')"
                 },
                 {
                   "include": "#interpolation"
@@ -876,7 +879,11 @@
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
         {
           "begin": "(?=\\'\\')",
           "end": "(?=([\\])};,]|\\b(else|then)\\b))",

@@ -47,5 +47,6 @@
       ''${builtins.trace builtins.currentSystem "firefox"}
     </a>
   '';
+  maybe = /* html */''<apple />'' + 5 + ''<apple />'' + 6 + /* html */''<apple />'';
 }
 

@@ -6,6 +6,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+- Added two multiline strings in one expression example
+- Fixed escaping inside language annotated strings
+- Fixed expressions after multiline strings getting no highlighting
 - Added unescaped and escaped string interpolation examples
 - Added expression after multiline string examples
 - Fixed injection grammar breaking when encountering escaped multiline string delimiters
