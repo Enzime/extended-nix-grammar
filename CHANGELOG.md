@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+- Use injection grammar instead of overriding the Nix grammar
+- Added broken example for Nix interpolation inside a HTML comment
+- Fixed string interpolation with preceeding escaped single quotes
+- Added working injection grammar for valid Nix variant
 - Added two multiline strings in one expression example
 - Fixed escaping inside language annotated strings
 - Fixed expressions after multiline strings getting no highlighting

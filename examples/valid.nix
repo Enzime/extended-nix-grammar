@@ -42,11 +42,14 @@
   thanks = "html";
   or = /* html */''
     <a href="apple">
-      ${"hey"}
+      '''${"hey" + /* html */'' <apple /> ''}
       ''${"firefox"}
       ''${builtins.trace builtins.currentSystem "firefox"}
     </a>
   '';
   maybe = /* html */''<apple />'' + 5 + ''<apple />'' + 6 + /* html */''<apple />'';
+  do = /* html */''
+    <!-- ${apple} -->
+  '';
 }
 

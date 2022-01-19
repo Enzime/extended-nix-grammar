@@ -1,0 +1,45 @@
+{
+  "scopeName": "valid-multiline-html.injection",
+  "injectionSelector": "L:source.nix",
+  "patterns": [
+    {
+      "include": "#fenced_code_block_html"
+    }
+  ],
+  "repository": {
+    "fenced_code_block_html": {
+      "begin": "(/\\* (html) \\*/)('')",
+      "end": "(?<!')''(?!\\$|')",
+      "name": "string.quoted.other.nix",
+      "contentName": "meta.embedded.block.html",
+      "beginCaptures": {
+        "1": {
+          "name": "comment.block.nix"
+        },
+        "2": {
+          "name": "keyword.todo"
+        },
+        "3":{
+          "name": "punctuation.definition.string.other.start.nix"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.other.end.nix"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.nix#interpolation"
+        },
+        {
+          "include": "text.html.basic"
+        },
+        {
+          "name": "constant.character.escape.nix",
+          "match": "''(\\$|')"
+        }
+      ]
+    }
+  }
+}
