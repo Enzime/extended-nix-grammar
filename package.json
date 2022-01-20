@@ -34,6 +34,14 @@
                 "embeddedLanguages": {
                     "meta.embedded.block.markdown": "markdown"
                 }
+            },
+            {
+                "scopeName": "nix-markdown-nix.injection",
+                "path": "./syntaxes/valid/markdown-nix.json",
+                "injectTo": ["source.nix"],
+                "embeddedLanguages": {
+                    "meta.embedded.block.nix": "nix"
+                }
             }
         ]
     }

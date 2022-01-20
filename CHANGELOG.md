@@ -6,6 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+- Fixed Nix inside Markdown inside Nix not working (`markdown-nix.json`)
 - Added `injection.json` from `nix-ide` as `markdown-nix.json`
 - Added injection grammar for Markdown inside Nix (`markdown.json`)
 - Use injection grammar instead of overriding the Nix grammar
