@@ -6,6 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+- Added injection grammar for Markdown inside Nix (`markdown.json`)
 - Use injection grammar instead of overriding the Nix grammar
 - Added broken example for Nix interpolation inside a HTML comment
 - Fixed string interpolation with preceeding escaped single quotes

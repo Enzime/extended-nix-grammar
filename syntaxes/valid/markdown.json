@@ -1,17 +1,17 @@
 {
-  "scopeName": "valid-multiline-html.injection",
+  "scopeName": "nix-multiline-markdown.injection",
   "injectionSelector": "L:source.nix",
   "patterns": [
     {
-      "include": "#fenced_code_block_html"
+      "include": "#fenced_code_block_markdown"
     }
   ],
   "repository": {
-    "fenced_code_block_html": {
-      "begin": "(/\\* (html) \\*/)('')",
+    "fenced_code_block_markdown": {
+      "begin": "(/\\* (md) \\*/)('')",
       "end": "(?<!')''(?!\\$|')",
       "name": "string.quoted.other.nix",
-      "contentName": "meta.embedded.block.html",
+      "contentName": "meta.embedded.block.markdown",
       "beginCaptures": {
         "1": {
           "name": "comment.block.nix"
@@ -33,7 +33,7 @@
           "include": "source.nix#interpolation"
         },
         {
-          "include": "text.html.basic"
+          "include": "text.html.markdown"
         },
         {
           "name": "constant.character.escape.nix",

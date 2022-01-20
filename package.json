@@ -20,11 +20,19 @@
                 }
             },
             {
-                "scopeName": "valid-multiline-html.injection",
-                "path": "./syntaxes/valid-lang-injection.json",
+                "scopeName": "nix-multiline-html.injection",
+                "path": "./syntaxes/valid/html.json",
                 "injectTo": ["source.nix"],
                 "embeddedLanguages": {
                     "meta.embedded.block.html": "html"
+                }
+            },
+            {
+                "scopeName": "nix-multiline-markdown.injection",
+                "path": "./syntaxes/valid/markdown.json",
+                "injectTo": ["source.nix"],
+                "embeddedLanguages": {
+                    "meta.embedded.block.markdown": "markdown"
                 }
             }
         ]
